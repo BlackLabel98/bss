@@ -105,7 +105,7 @@ local CoreGui = game:GetService("CoreGui")
 
 -- Interface Management
 local Rayfield = game:GetObjects("rbxassetid://10804731440")[1]
-
+local Rayfieldb = game:GetObjects("rbxassetid://11637506633")[1]
 
 
 if gethui then
@@ -143,7 +143,8 @@ local Topbar = Main.Topbar
 local Elements = Main.Elements
 local LoadingFrame = Main.LoadingFrame
 local TabList = Main.TabList
-local SearchBar = Main.Searchbar
+
+local SearchBar = Rayfieldb.Main.Searchbar
 local Filler = SearchBar.CanvasGroup.Filler
 
 Rayfield.DisplayOrder = 100
