@@ -1863,11 +1863,11 @@ function RayfieldLibrary:CreateWindow(Settings)
 					
 					OptionInTable.Selected = true
 					
-					--[[if not (Multi) then
+					if not (Multi) then
 						for _,op in ipairs(DropdownSettings.Items.Selected) do
 							TweenService:Create(op.Option, TweenInfo.new(0.3, Enum.EasingStyle.Quint), {BackgroundColor3 = Color3.fromRGB(30, 30, 30)}):Play()
 						end
-					end]]
+					end
 					TweenService:Create(DropdownOption.UIStroke, TweenInfo.new(0.3, Enum.EasingStyle.Quint), {Transparency = 1}):Play()
 					TweenService:Create(DropdownOption, TweenInfo.new(0.3, Enum.EasingStyle.Quint), {BackgroundColor3 = Color3.fromRGB(40, 40, 40)}):Play()
 					Debounce = true
@@ -1875,7 +1875,7 @@ function RayfieldLibrary:CreateWindow(Settings)
 					TweenService:Create(DropdownOption.UIStroke, TweenInfo.new(0.3, Enum.EasingStyle.Quint), {Transparency = 0}):Play()
 					wait(0.1)
 					if not Multi then
-						TweenService:Create(Dropdown, TweenInfo.new(0.5, Enum.EasingStyle.Quint), {Size = UDim2.new(0,465, 0, 45)}):Play()
+						TweenService:Create(Dropdown, TweenInfo.new(0.5, Enum.EasingStyle.Quint), {Size = UDim2.new(1,-10, 0, 45)}):Play()
 						for _, DropdownOpt in ipairs(Dropdown.List:GetChildren()) do
 							if DropdownOpt.ClassName == "Frame" and DropdownOpt.Name ~= "Placeholder" then
 								TweenService:Create(DropdownOpt, TweenInfo.new(0.3, Enum.EasingStyle.Quint), {BackgroundTransparency = 1}):Play()
@@ -1971,8 +1971,8 @@ function RayfieldLibrary:CreateWindow(Settings)
 					if DropdownSettings.Items[Item] then
 						DropdownSettings.Items[Item].Option:Destroy()
 						table.remove(DropdownSettings.Items,table.find(DropdownSettings.Items,Item))
-					else
-						Error('Option not found.')
+					--else
+					--	Error('Option not found.')
 					end
 				else
 					--SearchBar:Destroy()
