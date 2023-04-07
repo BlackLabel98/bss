@@ -1843,7 +1843,7 @@ function RayfieldLibrary:CreateWindow(Settings)
 					end
 					if not Multi and DropdownSettings.Items.Selected[1] then
 						DropdownSettings.Items.Selected[1].Selected = false
-						--TweenService:Create(DropdownSettings.Items.Selected[1].Option, TweenInfo.new(0.3, Enum.EasingStyle.Quint), {BackgroundColor3 = Color3.fromRGB(30, 30, 30)}):Play()
+						TweenService:Create(DropdownSettings.Items.Selected[1].Option, TweenInfo.new(0.3, Enum.EasingStyle.Quint), {BackgroundColor3 = Color3.fromRGB(30, 30, 30)}):Play()
 					end
 					if not (Multi) then
 						DropdownSettings.Items.Selected = {OptionInTable}
@@ -1863,11 +1863,11 @@ function RayfieldLibrary:CreateWindow(Settings)
 					
 					OptionInTable.Selected = true
 					
-					if not (Multi) then
+					--[[if not (Multi) then
 						for _,op in ipairs(DropdownSettings.Items.Selected) do
 							TweenService:Create(op.Option, TweenInfo.new(0.3, Enum.EasingStyle.Quint), {BackgroundColor3 = Color3.fromRGB(30, 30, 30)}):Play()
 						end
-					end
+					end]]
 					TweenService:Create(DropdownOption.UIStroke, TweenInfo.new(0.3, Enum.EasingStyle.Quint), {Transparency = 1}):Play()
 					TweenService:Create(DropdownOption, TweenInfo.new(0.3, Enum.EasingStyle.Quint), {BackgroundColor3 = Color3.fromRGB(40, 40, 40)}):Play()
 					Debounce = true
