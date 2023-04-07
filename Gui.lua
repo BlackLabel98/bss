@@ -2126,13 +2126,13 @@ function RayfieldLibrary:CreateWindow(Settings)
 				TweenService:Create(Dropdown, TweenInfo.new(0.4, Enum.EasingStyle.Quint), {BackgroundColor3 = SelectedTheme.ElementBackground}):Play()
 				TweenService:Create(Dropdown.UIStroke, TweenInfo.new(0.4, Enum.EasingStyle.Quint), {Transparency = 0}):Play()
 				if Debounce then return end
-				if not (Multi) then
+				--[[if not (Multi) then
 					DropdownSettings.Items.Selected = {OptionInTable}
 					Dropdown.Selected.Text = Option
 				else
 					table.insert(DropdownSettings.Items.Selected,OptionInTable)
 					RefreshSelected()
-				end
+				end]]
 				if Dropdown.List.Visible then
 					Debounce = true
 					TweenService:Create(Dropdown, TweenInfo.new(0.5, Enum.EasingStyle.Quint), {Size = UDim2.new(1, -10, 0, 45)}):Play()
