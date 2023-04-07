@@ -1686,7 +1686,7 @@ function RayfieldLibrary:CreateWindow(Settings)
 		function Tab:CreateDropdown(DropdownSettings)
 			local Dropdown = Elements.Template.Dropdown:Clone()
 			local SearchBar = Dropdown.List["-SearchBar"]
-			local Required = 1
+			--local Required = 1
 			--local Debounce = false
 			DropdownSettings.Items = {
 				Selected = {Default = DropdownSettings.Selected or nil}
