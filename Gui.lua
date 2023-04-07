@@ -1843,7 +1843,7 @@ function RayfieldLibrary:CreateWindow(Settings)
 					end
 					if not Multi and DropdownSettings.Items.Selected[1] then
 						DropdownSettings.Items.Selected[1].Selected = false
-						TweenService:Create(DropdownSettings.Items.Selected[1].Option, TweenInfo.new(0.3, Enum.EasingStyle.Quint), {BackgroundColor3 = Color3.fromRGB(30, 30, 30)}):Play()
+						--TweenService:Create(DropdownSettings.Items.Selected[1].Option, TweenInfo.new(0.3, Enum.EasingStyle.Quint), {BackgroundColor3 = Color3.fromRGB(30, 30, 30)}):Play()
 					end
 					if not (Multi) then
 						DropdownSettings.Items.Selected = {OptionInTable}
