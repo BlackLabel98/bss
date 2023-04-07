@@ -1683,6 +1683,7 @@ function RayfieldLibrary:CreateWindow(Settings)
 		end
 
 		-- Dropdown
+		--[[
 		function Tab:CreateDropdown(DropdownSettings)
 			local Dropdown = Elements.Template.Dropdown:Clone()
 			local SearchBar = Dropdown.List["-SearchBar"]
@@ -2064,8 +2065,9 @@ function RayfieldLibrary:CreateWindow(Settings)
 			end
 			return DropdownSettings
 		end
+		]]
 		
-		--[[function Tab:CreateDropdown(DropdownSettings)
+		function Tab:CreateDropdown(DropdownSettings)
 			local Dropdown = Elements.Template.Dropdown:Clone()
 			DropdownSettings.Items = {
 				Selected = {Default = DropdownSettings.Selected or nil}
@@ -2298,6 +2300,77 @@ function RayfieldLibrary:CreateWindow(Settings)
 			
 			AddOptions(DropdownSettings.Options,DropdownSettings.CurrentOption)
 			
+			--fix
+			function DropdownSettings:Set(NewOption)
+				
+				for _,o in pairs(NewOption) do
+
+					if typeof(NewOption) == 'table' then
+						
+						DropdownSettings.Items.Selected = NewOption
+					else
+						DropdownSettings.Items.Selected = {NewOption}
+					end
+					local Success, Response = pcall(function()
+						DropdownSettings.Callback(NewOption)
+					end)
+					if not Success then
+						TweenService:Create(Dropdown, TweenInfo.new(0.6, Enum.EasingStyle.Quint), {BackgroundColor3 = Color3.fromRGB(85, 0, 0)}):Play()
+						TweenService:Create(Dropdown.UIStroke, TweenInfo.new(0.6, Enum.EasingStyle.Quint), {Transparency = 1}):Play()
+						Dropdown.Title.Text = "Callback Error"
+						print("Rayfield | "..DropdownSettings.Name.." Callback Error " ..tostring(Response))
+						wait(0.5)
+						Dropdown.Title.Text = DropdownSettings.Name
+						TweenService:Create(Dropdown, TweenInfo.new(0.6, Enum.EasingStyle.Quint), {BackgroundColor3 = SelectedTheme.ElementBackground}):Play()
+						TweenService:Create(Dropdown.UIStroke, TweenInfo.new(0.6, Enum.EasingStyle.Quint), {Transparency = 0}):Play()
+					end
+					if DropdownSettings.Items[NewOption] then
+						local DropdownOption =  DropdownSettings.Items[NewOption]
+						DropdownOption.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
+						
+						if Dropdown.Visible then
+							DropdownOption.BackgroundTransparency = 0
+							DropdownOption.UIStroke.Transparency = 0
+							DropdownOption.Title.TextTransparency = 0
+						else
+							DropdownOption.BackgroundTransparency = 1
+							DropdownOption.UIStroke.Transparency = 1
+							DropdownOption.Title.TextTransparency = 1
+						end
+						
+					end
+				end
+				--Dropdown.Selected.Text = NewText
+			end
+			
+			function DropdownSettings:Refresh(NewOptions,Selecteds)
+				DropdownSettings.Items = {}
+				DropdownSettings.Items.Selected = {}
+				for _, option in ipairs(Dropdown.List:GetChildren()) do
+					if option.ClassName == "Frame" and option ~= SearchBar and option ~= Dropdown.List.PlaceHolder then
+						option:Destroy()
+					end
+				end
+				AddOptions(NewOptions,Selecteds)
+			end
+			function DropdownSettings:Remove(Item)
+				if Item ~= Dropdown.List.PlaceHolder and Item ~= SearchBar then
+					if DropdownSettings.Items[Item] then
+						DropdownSettings.Items[Item].Option:Destroy()
+						table.remove(DropdownSettings.Items,table.find(DropdownSettings.Items,Item))
+					else
+						Error('Option not found.')
+					end
+				else
+					SearchBar:Destroy()
+					Error("why you trynna remove the searchbar? FINE")
+				end
+				if Dropdown.Selected.Text == Item then
+					Dropdown.Selected.Text = ''
+				end
+			end
+			
+			--[[
 			for _, Option in ipairs(DropdownSettings.Options) do
 				local DropdownOption = Elements.Template.Dropdown.List.Template:Clone()
 				DropdownOption.Name = Option
@@ -2399,10 +2472,10 @@ function RayfieldLibrary:CreateWindow(Settings)
 				if Settings.ConfigurationSaving.Enabled and DropdownSettings.Flag then
 					RayfieldLibrary.Flags[DropdownSettings.Flag] = DropdownSettings
 				end
-			end
+			end]]
 
 			return DropdownSettings
-		end]]
+		end
 
 		-- Keybind
 		function Tab:CreateKeybind(KeybindSettings)
