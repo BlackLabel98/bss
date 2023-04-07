@@ -2367,8 +2367,8 @@ function RayfieldLibrary:CreateWindow(Settings)
 						Error('Option not found.')
 					end
 				else
-					SearchBar:Destroy()
-					Error("why you trynna remove the searchbar? FINE")
+					--SearchBar:Destroy()
+					--Error("why you trynna remove the searchbar? FINE")
 				end
 				if Dropdown.Selected.Text == Item then
 					Dropdown.Selected.Text = ''
