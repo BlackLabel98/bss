@@ -104,7 +104,8 @@ local Players = game:GetService("Players")
 local CoreGui = game:GetService("CoreGui")
 
 -- Interface Management
-local Rayfield = game:GetObjects("rbxassetid://11637506633")[1]--game:GetObjects("rbxassetid://10804731440")[1]
+local Rayfield = game:GetObjects("rbxassetid://10804731440")[1]
+--game:GetObjects("rbxassetid://11637506633")[1]
 
 
 if gethui then
@@ -2085,7 +2086,7 @@ function RayfieldLibrary:CreateWindow(Settings)
 			Dropdown.List.Visible = false
 			TabPage[Dropdown.Name].List.ScrollBarThickness = 5
 
-			Dropdown.Selected.Text = DropdownSettings.CurrentOption
+			--Dropdown.Selected.Text = DropdownSettings.CurrentOption
 
 			Dropdown.BackgroundTransparency = 1
 			Dropdown.UIStroke.Transparency = 1
@@ -2128,6 +2129,13 @@ function RayfieldLibrary:CreateWindow(Settings)
 				TweenService:Create(Dropdown, TweenInfo.new(0.4, Enum.EasingStyle.Quint), {BackgroundColor3 = SelectedTheme.ElementBackground}):Play()
 				TweenService:Create(Dropdown.UIStroke, TweenInfo.new(0.4, Enum.EasingStyle.Quint), {Transparency = 0}):Play()
 				if Debounce then return end
+				if not (Multi) then
+					DropdownSettings.Items.Selected = {OptionInTable}
+					Dropdown.Selected.Text = Option.Name or Option
+				else
+					table.insert(DropdownSettings.Items.Selected,OptionInTable)
+					RefreshSelected()
+				end
 				if Dropdown.List.Visible then
 					Debounce = true
 					TweenService:Create(Dropdown, TweenInfo.new(0.5, Enum.EasingStyle.Quint), {Size = UDim2.new(1, -10, 0, 45)}):Play()
