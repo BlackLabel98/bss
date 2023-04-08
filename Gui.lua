@@ -1722,8 +1722,6 @@ function RayfieldLibrary:CreateWindow(Settings)
 			Dropdown.Interact.Position = UDim2.new(0, 233, 0, 21)
 			
 			local function RefreshSelected()
-				if not (Multi) then
-				print("A",tostring(#DropdownSettings.Items.Selected))
 				if #DropdownSettings.Items.Selected > 1 then
 					local NT = {}
 					for _,kj in ipairs(DropdownSettings.Items.Selected) do
@@ -1734,19 +1732,6 @@ function RayfieldLibrary:CreateWindow(Settings)
 					Dropdown.Selected.Text = DropdownSettings.Items.Selected[1].Option.Name
 				else
 					Dropdown.Selected.Text = "Select an option"
-				end
-				else
-				if #DropdownSettings.Items.Selected > 1 then
-					local NT = {}
-					for _,kj in ipairs(DropdownSettings.Items.Selected) do
-						NT[#NT+1] = kj.Option.Name
-					end
-					Dropdown.Selected.Text = table.concat(NT, ", ")
-				elseif DropdownSettings.Items.Selected[1] then
-					Dropdown.Selected.Text = DropdownSettings.Items.Selected[1].Option.Name
-				else
-					Dropdown.Selected.Text = "Select an option"
-				end
 				end
 			end
 
@@ -1863,6 +1848,8 @@ function RayfieldLibrary:CreateWindow(Settings)
 					if not (Multi) then
 						DropdownSettings.Items.Selected = {OptionInTable}
 						Dropdown.Selected.Text = Option.Name or Option
+						print("Option.Name",Option.Name)
+						print("Option",Option)
 					else
 						table.insert(DropdownSettings.Items.Selected,OptionInTable)
 						RefreshSelected()
