@@ -1800,8 +1800,8 @@ function RayfieldLibrary:CreateWindow(Settings)
 					Selected = false
 				}
 				local OptionInTable = DropdownSettings.Items[Option]
-				print("Option.Name",Option.Name)
-				print("Option",Option)
+				print("Option.Name A",Option.Name)
+				print("Option A",Option)
 				DropdownOption.Name = Option.Name or Option
 				DropdownOption.Title.Text = Option.Name or Option
 				DropdownOption.Parent = Dropdown.List
