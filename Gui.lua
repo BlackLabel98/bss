@@ -1687,6 +1687,7 @@ function RayfieldLibrary:CreateWindow(Settings)
 				Selected = {Default = DropdownSettings.Selected or nil}
 			}
 			local Multi = DropdownSettings.MultiSelection or false
+			local EmptyCurrent = DropdownSettings.EmptyText or ""
 			if string.find(DropdownSettings.Name,"closed") then
 				Dropdown.Name = "Dropdown"
 			else
@@ -1731,7 +1732,7 @@ function RayfieldLibrary:CreateWindow(Settings)
 				elseif DropdownSettings.Items.Selected[1] then
 					Dropdown.Selected.Text = DropdownSettings.Items.Selected[1].Option.Name
 				else
-					Dropdown.Selected.Text = "Select an option"
+					Dropdown.Selected.Text = EmptyCurrent--"Select an option"
 				end
 			end
 
