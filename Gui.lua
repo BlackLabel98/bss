@@ -2376,6 +2376,9 @@ function RayfieldLibrary:CreateWindow(Settings)
 			print(tostring(Slider.Main.AbsoluteSize.X * ((SliderSettings.CurrentValue + SliderSettings.Range[1]) / (SliderSettings.Range[2] - SliderSettings.Range[1]))))
 			print(tostring(Slider.Main.AbsoluteSize.X * (SliderSettings.CurrentValue / (SliderSettings.Range[2] - SliderSettings.Range[1]))))
 			
+			print(((SliderSettings.CurrentValue + SliderSettings.Range[1]) / (SliderSettings.Range[2] - SliderSettings.Range[1])))
+			
+			print((SliderSettings.CurrentValue / (SliderSettings.Range[2] - SliderSettings.Range[1])))
 
 			if not SliderSettings.Suffix then
 				Slider.Main.Information.Text = tostring(SliderSettings.CurrentValue)
