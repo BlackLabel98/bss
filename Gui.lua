@@ -1699,11 +1699,7 @@ function RayfieldLibrary:CreateWindow(Settings)
 			Dropdown.List.Visible = false
 			TabPage[Dropdown.Name].List.ScrollBarThickness = 5
 
-			if not (Multi) then
-				if DropdownSettings.Items.Selected == nil then
-					Dropdown.Selected.Text = ""
-				end
-			end
+			--Dropdown.Selected.Text = ""
 
 			Dropdown.BackgroundTransparency = 1
 			Dropdown.UIStroke.Transparency = 1
