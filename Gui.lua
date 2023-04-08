@@ -1847,7 +1847,7 @@ function RayfieldLibrary:CreateWindow(Settings)
 					end
 					if not (Multi) then
 						DropdownSettings.Items.Selected = {OptionInTable}
-						Dropdown.Selected.Text = Option.Name or Option
+						Dropdown.Selected.Text = Option.Name or ""--Option
 					else
 						table.insert(DropdownSettings.Items.Selected,OptionInTable)
 						RefreshSelected()
