@@ -1700,7 +1700,6 @@ function RayfieldLibrary:CreateWindow(Settings)
 			TabPage[Dropdown.Name].List.ScrollBarThickness = 5
 
 			--Dropdown.Selected.Text = ""
-			print("A",DropdownSettings.Selected)
 
 			Dropdown.BackgroundTransparency = 1
 			Dropdown.UIStroke.Transparency = 1
@@ -1723,6 +1722,9 @@ function RayfieldLibrary:CreateWindow(Settings)
 			Dropdown.Interact.Position = UDim2.new(0, 233, 0, 21)
 			
 			local function RefreshSelected()
+				if DropdownSettings.Selected == nil then
+					Dropdown.Selected.Text = ""
+				end
 				if #DropdownSettings.Items.Selected > 1 then
 					local NT = {}
 					for _,kj in ipairs(DropdownSettings.Items.Selected) do
