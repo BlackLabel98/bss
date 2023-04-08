@@ -2371,17 +2371,7 @@ function RayfieldLibrary:CreateWindow(Settings)
 			TweenService:Create(Slider.UIStroke, TweenInfo.new(0.7, Enum.EasingStyle.Quint), {Transparency = 0}):Play()
 			TweenService:Create(Slider.Title, TweenInfo.new(0.7, Enum.EasingStyle.Quint), {TextTransparency = 0}):Play()	
 			
-			Slider.Main.Progress.Size =	UDim2.new(0, Slider.Main.AbsoluteSize.X * ((SliderSettings.CurrentValue + SliderSettings.Range[1]) / (SliderSettings.Range[2] - SliderSettings.Range[1])) > 5 and Slider.Main.AbsoluteSize.X * (SliderSettings.CurrentValue / (SliderSettings.Range[2] - SliderSettings.Range[1])) or 5, 1, 0)
-			print("CurrentValue", tostring(SliderSettings.CurrentValue))
-			print("Range1", tostring(SliderSettings.Range[1]))
-			print("Range2", tostring(SliderSettings.Range[2]))
-			print("Progress.Size", tostring(Slider.Main.Progress.Size))
-			print("Slider.Main.AbsoluteSize.X", tostring(Slider.Main.AbsoluteSize.X))
-			print("A", tostring(Slider.Main.AbsoluteSize.X * ((SliderSettings.CurrentValue + SliderSettings.Range[1]) / (SliderSettings.Range[2] - SliderSettings.Range[1]))))
-			print("B", tostring(Slider.Main.AbsoluteSize.X * (SliderSettings.CurrentValue / (SliderSettings.Range[2] - SliderSettings.Range[1]))))
-			
-			print("A1", ((SliderSettings.CurrentValue + SliderSettings.Range[1]) / (SliderSettings.Range[2] - SliderSettings.Range[1])))
-			print("B1", (SliderSettings.CurrentValue / (SliderSettings.Range[2] - SliderSettings.Range[1])))
+			Slider.Main.Progress.Size =	UDim2.new(0, Slider.Main.AbsoluteSize.X * ((SliderSettings.CurrentValue + SliderSettings.Range[1]) / (SliderSettings.Range[2] - SliderSettings.Range[1])) > 5 and Slider.Main.AbsoluteSize.X * (SliderSettings.CurrentValue / (SliderSettings.Range[2] - SliderSettings.Range[1])) > Slider.Main.AbsoluteSize.X and Slider.Main.AbsoluteSize.X or 5, 1, 0)
 
 			if not SliderSettings.Suffix then
 				Slider.Main.Information.Text = tostring(SliderSettings.CurrentValue)
@@ -2421,7 +2411,6 @@ function RayfieldLibrary:CreateWindow(Settings)
 
 			local function UpdateSlider(X)
 				local Current = Slider.Main.Progress.AbsolutePosition.X + Slider.Main.Progress.AbsoluteSize.X
-				print(tostring(Current))
 				local Start = Current
 				local Location = X
 				
