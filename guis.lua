@@ -1687,9 +1687,14 @@ function RayfieldLibrary:CreateWindow(Settings)
 				if #DropdownSettings.CurrentOption == 1 then
 					Dropdown.Selected.Text = DropdownSettings.CurrentOption[1]
 				elseif #DropdownSettings.CurrentOption == 0 then
-					Dropdown.Selected.Text = "None"
+					Dropdown.Selected.Text = ""
 				else
-					Dropdown.Selected.Text = "Various"
+					local NT = {}
+					for _,kj in ipairs(DropdownSettings.CurrentOption) do
+						NT[#NT+1] = kj
+					end
+					Dropdown.Selected.Text = table.concat(NT, ", ")
+					--Dropdown.Selected.Text = "Various"
 				end
 			else
 				Dropdown.Selected.Text = DropdownSettings.CurrentOption[1]
