@@ -1807,6 +1807,7 @@ function RayfieldLibrary:CreateWindow(Settings)
 				DropdownOption.Parent = Dropdown.List
 				DropdownOption.Visible = true
 				local IsSelected = OptionInTable.Selected
+				print("IsSelected A",IsSelected)
 				if Selecteds and #Selecteds > 0 then
 					if typeof(Selecteds) == 'string' then
 						Selecteds = {Selecteds}
