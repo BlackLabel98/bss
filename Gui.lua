@@ -1726,15 +1726,12 @@ function RayfieldLibrary:CreateWindow(Settings)
 					local NT = {}
 					for _,kj in ipairs(DropdownSettings.Items.Selected) do
 						NT[#NT+1] = kj.Option.Name
-						print("A",NT[#NT+1])
 					end
 					Dropdown.Selected.Text = table.concat(NT, ", ")
 				elseif DropdownSettings.Items.Selected[1] then
 					Dropdown.Selected.Text = DropdownSettings.Items.Selected[1].Option.Name
-					print("B",DropdownSettings.Items.Selected[1].Option.Name)
 				else
 					Dropdown.Selected.Text = "Select an option"
-					print("C","Select an option")
 				end
 			end
 
@@ -1800,15 +1797,19 @@ function RayfieldLibrary:CreateWindow(Settings)
 					Selected = false
 				}
 				local OptionInTable = DropdownSettings.Items[Option]
-				print("Option.Name A",Option.Name)
 				print("Option A",Option)
 				DropdownOption.Name = Option.Name or Option
 				DropdownOption.Title.Text = Option.Name or Option
 				DropdownOption.Parent = Dropdown.List
 				DropdownOption.Visible = true
 				local IsSelected = OptionInTable.Selected
-				print("IsSelected A",IsSelected)
-				if not IsSelected then DropdownSettings.Items.Selected = "" end
+				if not IsSelected then
+					if not Multi then
+						DropdownSettings.Items.Selected = {}
+					else
+						DropdownSettings.Items.Selected = {}
+					end
+				end
 				if Selecteds and #Selecteds > 0 then
 					if typeof(Selecteds) == 'string' then
 						Selecteds = {Selecteds}
@@ -1854,8 +1855,6 @@ function RayfieldLibrary:CreateWindow(Settings)
 					end
 					if not (Multi) then
 						DropdownSettings.Items.Selected = {OptionInTable}
-						print("Option.Name",Option.Name)
-						print("Option",Option)
 						Dropdown.Selected.Text = Option.Name or Option
 					else
 						table.insert(DropdownSettings.Items.Selected,OptionInTable)
