@@ -1722,9 +1722,10 @@ function RayfieldLibrary:CreateWindow(Settings)
 			Dropdown.Interact.Position = UDim2.new(0, 233, 0, 21)
 			
 			local function RefreshSelected()
-				if #DropdownSettings.Items.Selected == 0 then
-					Dropdown.Selected.Text = "Select an option"
-				end
+				print("A",tostring(DropdownSettings.Items.Selected))
+				--if #DropdownSettings.Items.Selected == 0 then
+				--	Dropdown.Selected.Text = "Select an option"
+				--end
 				if #DropdownSettings.Items.Selected > 1 then
 					local NT = {}
 					for _,kj in ipairs(DropdownSettings.Items.Selected) do
