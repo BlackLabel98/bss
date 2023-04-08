@@ -1728,6 +1728,7 @@ function RayfieldLibrary:CreateWindow(Settings)
 						NT[#NT+1] = kj.Option.Name
 					end
 					Dropdown.Selected.Text = table.concat(NT, ", ")
+					print("A",Dropdown.Selected.Text)
 				elseif DropdownSettings.Items.Selected[1] then
 					Dropdown.Selected.Text = DropdownSettings.Items.Selected[1].Option.Name
 					print("A",DropdownSettings.Items.Selected[1].Option.Name)
