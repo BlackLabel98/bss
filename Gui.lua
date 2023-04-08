@@ -1684,7 +1684,7 @@ function RayfieldLibrary:CreateWindow(Settings)
 		function Tab:CreateDropdown(DropdownSettings)
 			local Dropdown = Elements.Template.Dropdown:Clone()
 			DropdownSettings.Items = {
-				Selected = {Default = DropdownSettings.Selected or ""}
+				Selected = {Default = DropdownSettings.Selected or nil}
 			}
 			local Multi = DropdownSettings.MultiSelection or false
 			if string.find(DropdownSettings.Name,"closed") then
@@ -1700,6 +1700,7 @@ function RayfieldLibrary:CreateWindow(Settings)
 			TabPage[Dropdown.Name].List.ScrollBarThickness = 5
 
 			--Dropdown.Selected.Text = ""
+			print("A",DropdownSettings.Selected)
 
 			Dropdown.BackgroundTransparency = 1
 			Dropdown.UIStroke.Transparency = 1
