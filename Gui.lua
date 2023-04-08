@@ -1684,7 +1684,7 @@ function RayfieldLibrary:CreateWindow(Settings)
 		function Tab:CreateDropdown(DropdownSettings)
 			local Dropdown = Elements.Template.Dropdown:Clone()
 			DropdownSettings.Items = {
-				Selected = {Default = DropdownSettings.Selected or nil}
+				Selected = {Default = DropdownSettings.Selected or ""}
 			}
 			local Multi = DropdownSettings.MultiSelection or false
 			if string.find(DropdownSettings.Name,"closed") then
@@ -1848,8 +1848,6 @@ function RayfieldLibrary:CreateWindow(Settings)
 					if not (Multi) then
 						DropdownSettings.Items.Selected = {OptionInTable}
 						Dropdown.Selected.Text = Option.Name or Option
-						print("Option.Name",Option.Name)
-						print("Option",Option)
 					else
 						table.insert(DropdownSettings.Items.Selected,OptionInTable)
 						RefreshSelected()
