@@ -2372,14 +2372,13 @@ function RayfieldLibrary:CreateWindow(Settings)
 			TweenService:Create(Slider.Title, TweenInfo.new(0.7, Enum.EasingStyle.Quint), {TextTransparency = 0}):Play()	
 			
 			Slider.Main.Progress.Size =	UDim2.new(0, Slider.Main.AbsoluteSize.X * ((SliderSettings.CurrentValue + SliderSettings.Range[1]) / (SliderSettings.Range[2] - SliderSettings.Range[1])) > 5 and Slider.Main.AbsoluteSize.X * (SliderSettings.CurrentValue / (SliderSettings.Range[2] - SliderSettings.Range[1])) or 5, 1, 0)
-			print(tostring(Slider.Main.Progress.Size))
-			print(tostring(Slider.Main.AbsoluteSize.X))
-			print(tostring(Slider.Main.AbsoluteSize.X * ((SliderSettings.CurrentValue + SliderSettings.Range[1]) / (SliderSettings.Range[2] - SliderSettings.Range[1]))))
-			print(tostring(Slider.Main.AbsoluteSize.X * (SliderSettings.CurrentValue / (SliderSettings.Range[2] - SliderSettings.Range[1]))))
+			print("Progress.Size", tostring(Slider.Main.Progress.Size))
+			print("Slider.Main.AbsoluteSize.X", tostring(Slider.Main.AbsoluteSize.X))
+			print("A", tostring(Slider.Main.AbsoluteSize.X * ((SliderSettings.CurrentValue + SliderSettings.Range[1]) / (SliderSettings.Range[2] - SliderSettings.Range[1]))))
+			print("B", tostring(Slider.Main.AbsoluteSize.X * (SliderSettings.CurrentValue / (SliderSettings.Range[2] - SliderSettings.Range[1]))))
 			
-			print(((SliderSettings.CurrentValue + SliderSettings.Range[1]) / (SliderSettings.Range[2] - SliderSettings.Range[1])))
-			
-			print((SliderSettings.CurrentValue / (SliderSettings.Range[2] - SliderSettings.Range[1])))
+			print("A1", ((SliderSettings.CurrentValue + SliderSettings.Range[1]) / (SliderSettings.Range[2] - SliderSettings.Range[1])))
+			print("B1", (SliderSettings.CurrentValue / (SliderSettings.Range[2] - SliderSettings.Range[1])))
 
 			if not SliderSettings.Suffix then
 				Slider.Main.Information.Text = tostring(SliderSettings.CurrentValue)
