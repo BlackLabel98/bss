@@ -102,7 +102,7 @@ local Players = game:GetService("Players")
 local CoreGui = game:GetService("CoreGui")
 
 -- Interface Management
-local Rayfield = game:GetObjects("rbxassetid://10804731440")[1]
+local Rayfield = game:GetObjects("rbxassetid://13079908712")[1]
 
 Rayfield.Enabled = false
 
@@ -1677,7 +1677,6 @@ function RayfieldLibrary:CreateWindow(Settings)
 			Dropdown.Parent = TabPage
 
 			Dropdown.List.Visible = false
-			TabPage[Dropdown.Name].List.ScrollBarThickness = 5
 
 			if typeof(DropdownSettings.CurrentOption) == "string" then
 				DropdownSettings.CurrentOption = {DropdownSettings.CurrentOption}
@@ -1722,8 +1721,8 @@ function RayfieldLibrary:CreateWindow(Settings)
 			end
 
 			Dropdown.Toggle.Rotation = 180
-			Dropdown.Interact.Size = UDim2.new(1, 0, 0, 38)
-			Dropdown.Interact.Position = UDim2.new(0, 233, 0, 21)
+			--Dropdown.Interact.Size = UDim2.new(1, 0, 0, 38)
+			--Dropdown.Interact.Position = UDim2.new(0, 233, 0, 21)
 
 			Dropdown.Interact.MouseButton1Click:Connect(function()
 				TweenService:Create(Dropdown, TweenInfo.new(0.4, Enum.EasingStyle.Quint), {BackgroundColor3 = SelectedTheme.ElementBackgroundHover}):Play()
@@ -1759,7 +1758,6 @@ function RayfieldLibrary:CreateWindow(Settings)
 							TweenService:Create(DropdownOpt.Title, TweenInfo.new(0.3, Enum.EasingStyle.Quint), {TextTransparency = 0}):Play()
 						end
 					end
-					Dropdown.List.CanvasSize = UDim2.new(0, 0, 1, 0)
 				end
 			end)
 
