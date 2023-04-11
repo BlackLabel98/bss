@@ -1599,6 +1599,9 @@ function RayfieldLibrary:CreateWindow(Settings)
 				Paragraph.Title.Text = NewParagraphSettings.Title
 				Paragraph.Content.Text = NewParagraphSettings.Content
 			end
+			function ParagraphValue:Visible(NewVisibleSettings)
+				Paragraph.Visible = NewVisibleSettings
+			end
 
 			return ParagraphValue
 		end
