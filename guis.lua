@@ -1759,6 +1759,7 @@ function RayfieldLibrary:CreateWindow(Settings)
 							TweenService:Create(DropdownOpt.Title, TweenInfo.new(0.3, Enum.EasingStyle.Quint), {TextTransparency = 0}):Play()
 						end
 					end
+					Dropdown.List.CanvasSize = UDim2.new(0, 0, 1, 0)
 				end
 			end)
 
