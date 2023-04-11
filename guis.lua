@@ -1722,6 +1722,8 @@ function RayfieldLibrary:CreateWindow(Settings)
 			end
 
 			Dropdown.Toggle.Rotation = 180
+			Dropdown.Interact.Size = UDim2.new(1, 0, 0, 38)
+			Dropdown.Interact.Position = UDim2.new(0, 233, 0, 21)
 
 			Dropdown.Interact.MouseButton1Click:Connect(function()
 				TweenService:Create(Dropdown, TweenInfo.new(0.4, Enum.EasingStyle.Quint), {BackgroundColor3 = SelectedTheme.ElementBackgroundHover}):Play()
