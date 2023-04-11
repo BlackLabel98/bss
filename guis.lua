@@ -1677,6 +1677,7 @@ function RayfieldLibrary:CreateWindow(Settings)
 			Dropdown.Parent = TabPage
 
 			Dropdown.List.Visible = false
+			TabPage[Dropdown.Name].List.ScrollBarThickness = 5
 
 			if typeof(DropdownSettings.CurrentOption) == "string" then
 				DropdownSettings.CurrentOption = {DropdownSettings.CurrentOption}
