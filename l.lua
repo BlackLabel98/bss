@@ -21,7 +21,7 @@ local function Teleport(enemy)
 	local pChr = plr.Character or plr.CharacterAdded:Wait()
 	local pHroot = pChr:WaitForChild("HumanoidRootPart")
 	local pHumanoid = pChr:WaitForChild("Humanoid")
-	pChr:SetPrimaryPartCFrame(enemy)
+	pChr:SetPrimaryPartCFrame(enemy + Vector3.new(0, 4, 0))
 end
 FarmingWindow:Toggle("Start Farming", {flag = 'StartFarming'}, function(new)
 	task.spawn(function()
