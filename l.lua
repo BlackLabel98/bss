@@ -20,9 +20,10 @@ end
 local function Teleport(enemy)
 	local plr = game.Players.LocalPlayer
 	local pChr = plr.Character or plr.CharacterAdded:Wait()
-	--local pHroot = pChr:WaitForChild("HumanoidRootPart")
+	local pHroot = pChr:WaitForChild("HumanoidRootPart")
 	--local pHumanoid = pChr:WaitForChild("Humanoid")
-	pChr:SetPrimaryPartCFrame(enemy)
+	--pChr:SetPrimaryPartCFrame(enemy)
+	pHroot.CFrame = enemy
 end
 FarmingWindow:Toggle("Auto Swing", {flag = 'AutoSwing'}, function(new)
 	task.spawn(function()
