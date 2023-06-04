@@ -44,10 +44,11 @@ FarmingWindow:Toggle("Auto Farming", {flag = 'StartFarming'}, function(new)
 						Teleport(enemy.CFrame)
 					end
 					repeat task.wait() until not enemy.Parent or enemy.Parent == nil or not FarmingWindow.flags.StartFarming
+					task.wait(1)
 					local Aplr = game.Players.LocalPlayer
 					local ApChr = Aplr.Character or Aplr.CharacterAdded:Wait()
 					ApChr:WaitForChild("UpperTorso").Anchored = true
-					task.wait(2)
+					task.wait(5)
 					ApChr:WaitForChild("UpperTorso").Anchored = false
 					--repeat task.wait() until not enemy.HP or enemy.HP == nil or not FarmingWindow.flags.StartFarming
 				end
