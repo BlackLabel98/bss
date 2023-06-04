@@ -75,3 +75,13 @@ FarmingWindow:Toggle("Auto Catch", {flag = 'AutoCatch'}, function(new)
 		end
 	end)
 end)
+FarmingWindow:Toggle("Auto Open Hero 8", {flag = 'AutoOpenHero'}, function(new)
+	task.spawn(function()
+		while FarmingWindow.flags.AutoOpenHero do
+			pcall(function()
+				game:GetService("ReplicatedStorage"):WaitForChild("Tool"):WaitForChild("DrawUp"):WaitForChild("Msg"):WaitForChild("DrawHero"):InvokeServer(7000008,1)
+			end)
+			task.wait(0.2)
+		end
+	end)
+end)
