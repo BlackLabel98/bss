@@ -8,7 +8,7 @@ local function GetNearest(plr)
 	local PlayerPosition = plr
 	--Enemy --Part
 	for i,v in pairs(workspace:WaitForChild("本地Enemy"):GetDescendants()) do
-		if v and v.ClassName == "Model" and (v.Name == "160" or v.Name == "164" or v.Name == "173") then
+		if v and v.ClassName == "Model" then
 			if Closest == nil then
 				Closest = v.PrimaryPart
 			else
