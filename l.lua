@@ -42,6 +42,7 @@ FarmingWindow:Toggle("Auto Farming", {flag = 'StartFarming'}, function(new)
 				local ApChr = Aplr.Character or Aplr.CharacterAdded:Wait()
 				if not FarmingWindow.flags.StartFarming then
 					ApChr:WaitForChild("UpperTorso").Anchored = false
+					break
 				else
 					ApChr:WaitForChild("UpperTorso").Anchored = true
 				end
