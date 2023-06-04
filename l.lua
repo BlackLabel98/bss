@@ -59,11 +59,11 @@ FarmingWindow:Toggle("Auto Farming", {flag = 'StartFarming'}, function(new)
 					end]]
 					if enemy.CFrame then
 						Teleport(enemy.CFrame)
-						repeat task.wait() until not enemy.HP or enemy.HP == nil or not FarmingWindow.flags.StartFarming
+						--repeat task.wait() until not enemy.HP or enemy.HP == nil or not FarmingWindow.flags.StartFarming
 					end
 				end
 			end)
-			task.wait(0.2)
+			task.wait(0.1)
 		end
 	end)
 end)
