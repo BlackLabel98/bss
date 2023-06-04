@@ -41,10 +41,8 @@ FarmingWindow:Toggle("Auto Farming", {flag = 'StartFarming'}, function(new)
 				local enemy = GetNearest(game.Players.LocalPlayer.Character.HumanoidRootPart.Position)
 				if enemy then
 					if enemy.CFrame then
-						local tempcf = enemy.CFrame
-						Teleport(tempcf)
-						repeat task.wait() until not enemy.Parent or enemy.Parent == nil or not FarmingWindow.flags.StartFarming
-						Teleport(tempcf)
+						--Teleport(enemy.CFrame)
+						repeat task.wait() Teleport(enemy.CFrame) until not enemy.Parent or enemy.Parent == nil or not FarmingWindow.flags.StartFarming
 					end
 					--repeat task.wait() until not enemy.HP or enemy.HP == nil or not FarmingWindow.flags.StartFarming
 				end
