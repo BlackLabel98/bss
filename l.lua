@@ -62,6 +62,7 @@ FarmingWindow:Toggle("Auto Farming", {flag = 'StartFarming'}, function(new)
 						--repeat task.wait() until not enemy.HP or enemy.HP == nil or not FarmingWindow.flags.StartFarming
 					end
 				end
+				enemy = nil
 			end)
 			task.wait(0.1)
 		end
