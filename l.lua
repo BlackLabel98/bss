@@ -36,13 +36,26 @@ FarmingWindow:Toggle("Auto Swing", {flag = 'AutoSwing'}, function(new)
 end)
 FarmingWindow:Toggle("Auto Farming", {flag = 'StartFarming'}, function(new)
 	task.spawn(function()
+		while true do
+			pcall(function()
+				local Aplr = game.Players.LocalPlayer
+				local ApChr = Aplr.Character or Aplr.CharacterAdded:Wait()
+				if not FarmingWindow.flags.StartFarming then
+					ApChr:WaitForChild("UpperTorso").Anchored = false
+				else
+					ApChr:WaitForChild("UpperTorso").Anchored = true
+				end
+			end)
+			task.wait(0.1)
+		end
+	end)
+	task.spawn(function()
 		while FarmingWindow.flags.StartFarming do
 			pcall(function()
 				local enemy = GetNearest(game.Players.LocalPlayer.Character.HumanoidRootPart.Position)
 				if enemy then
 					if enemy.CFrame then
 						Teleport(enemy.CFrame)
-						print(enemy.Parent.Name)
 					end
 					repeat task.wait() until not enemy.Parent or enemy.Parent == nil or not FarmingWindow.flags.StartFarming
 					--repeat task.wait() until not enemy.HP or enemy.HP == nil or not FarmingWindow.flags.StartFarming
