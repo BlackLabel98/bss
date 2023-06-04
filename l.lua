@@ -1,5 +1,5 @@
 local library = loadstring(game:HttpGet('https://raw.githubusercontent.com/BlackLabel98/bss/main/k.lua'))()
---//Farming
+SellOrCatch = true
 local FarmingWindow = library:CreateWindow("Farming")
 local function GetNearest(plr)
 	local Closest = nil
@@ -45,17 +45,17 @@ FarmingWindow:Toggle("Start Farming", {flag = 'StartFarming'}, function(new)
 						Teleport(enemy.CFrame)
 					end
 					repeat task.wait() until not enemy.HP or enemy.HP == nil or not FarmingWindow.flags.StartFarming
-					local args = {
-						[1] = "\230\148\190\231\148\159\232\191\153\229\143\170\229\174\160\231\137\169",
-						[2] = {
-							["onlyTag"] = tostring(tempFullName),
-							["onlyID"] = tonumber(tempID)
-						}
-					}
-					game:GetService("ReplicatedStorage"):WaitForChild("Msg"):WaitForChild("RemoteEvent"):FireServer(unpack(args))
+					if SellOrCatch then
+						game:GetService("VirtualInputManager"):SendKeyEvent(true,Enum.KeyCode.E,false,game)
+					else
+						game:GetService("VirtualInputManager"):SendKeyEvent(true,Enum.KeyCode.Q,false,game)
+					end
 				end
 			end)
 			task.wait(1)
 		end
 	end)
+end)
+FarmingWindow:Toggle("Auto Catch", {flag = 'AutoCatch'}, function(new)
+	SellOrCatch = not SellOrCatch
 end)
