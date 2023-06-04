@@ -1,5 +1,5 @@
 local library = loadstring(game:HttpGet('https://raw.githubusercontent.com/BlackLabel98/bss/main/k.lua'))()
-SellOrCatch = true
+_G.SellOrCatch = true
 local FarmingWindow = library:CreateWindow("Farming")
 local function GetNearest(plr)
 	local Closest = nil
@@ -45,11 +45,12 @@ FarmingWindow:Toggle("Start Farming", {flag = 'StartFarming'}, function(new)
 						Teleport(enemy.CFrame)
 					end
 					repeat task.wait() until not enemy.HP or enemy.HP == nil or not FarmingWindow.flags.StartFarming
-					if SellOrCatch then
+					if _G.SellOrCatch then
 						game:GetService("VirtualInputManager"):SendKeyEvent(true,Enum.KeyCode.E,false,game)
 					else
 						game:GetService("VirtualInputManager"):SendKeyEvent(true,Enum.KeyCode.Q,false,game)
 					end
+					task.wait(1)
 				end
 			end)
 			task.wait(1)
@@ -57,5 +58,5 @@ FarmingWindow:Toggle("Start Farming", {flag = 'StartFarming'}, function(new)
 	end)
 end)
 FarmingWindow:Toggle("Auto Catch", {flag = 'AutoCatch'}, function(new)
-	SellOrCatch = not SellOrCatch
+	_G.SellOrCatch = not _G.SellOrCatch
 end)
