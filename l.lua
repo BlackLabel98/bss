@@ -21,17 +21,19 @@ local function Teleport(enemy)
 	local pChr = plr.Character or plr.CharacterAdded:Wait()
 	local pHroot = pChr:WaitForChild("HumanoidRootPart")
 	local pHumanoid = pChr:WaitForChild("Humanoid")
-	pChr:SetPrimaryPartCFrame(enemy + Vector3.new(0, 8, 0))
+	pChr:SetPrimaryPartCFrame(enemy + Vector3.new(0, 5, 0))
 end
-FarmingWindow:Toggle("Start Farming", {flag = 'StartFarming'}, function(new)
+FarmingWindow:Toggle("Auto Swing", {flag = 'AutoSwing'}, function(new)
 	task.spawn(function()
-		while FarmingWindow.flags.StartFarming do
+		while FarmingWindow.flags.AutoSwing do
 			pcall(function()
 				game:GetService("ReplicatedStorage"):WaitForChild("System"):WaitForChild("SystemClick"):WaitForChild("Click"):FireServer()
 			end)
 			task.wait(0.1)
 		end
 	end)
+end)
+FarmingWindow:Toggle("Auto Farming", {flag = 'StartFarming'}, function(new)
 	task.spawn(function()
 		while FarmingWindow.flags.StartFarming do
 			pcall(function()
@@ -43,7 +45,7 @@ FarmingWindow:Toggle("Start Farming", {flag = 'StartFarming'}, function(new)
 					repeat task.wait() until not enemy.HP or enemy.HP == nil or not FarmingWindow.flags.StartFarming
 				end
 			end)
-			task.wait(1)
+			task.wait(0.2)
 		end
 	end)
 end)
