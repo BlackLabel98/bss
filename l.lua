@@ -3,13 +3,14 @@ local FarmingWindow = library:CreateWindow("Farming")
 local function GetNearest(plr)
 	local Closest = nil
 	local PlayerPosition = plr
-	for i,v in pairs(workspace:WaitForChild("Enemy"):GetDescendants()) do
-		if v and v.ClassName== "Part" then
+	--Enemy --Part
+	for i,v in pairs(workspace:WaitForChild("本地Enemy"):GetDescendants()) do
+		if v and v.ClassName== "Model" then
 			if Closest == nil then
-				Closest = v
+				Closest = v.PrimaryPart
 			else
-				if (PlayerPosition - v.Position).magnitude < (Closest.Position - PlayerPosition).magnitude then
-					Closest = v
+				if (PlayerPosition - v.PrimaryPart.Position).magnitude < (Closest.Position - PlayerPosition).magnitude then
+					Closest = v.PrimaryPart
 				end
 			end
 		end
@@ -41,8 +42,10 @@ FarmingWindow:Toggle("Auto Farming", {flag = 'StartFarming'}, function(new)
 				if enemy then
 					if enemy.CFrame then
 						Teleport(enemy.CFrame)
+						print(enemy.Parent.Name)
 					end
-					repeat task.wait() until not enemy.HP or enemy.HP == nil or not FarmingWindow.flags.StartFarming
+					repeat task.wait() until not enemy.Parent or enemy.Parent == nil or not FarmingWindow.flags.StartFarming
+					--repeat task.wait() until not enemy.HP or enemy.HP == nil or not FarmingWindow.flags.StartFarming
 				end
 			end)
 			task.wait(0.2)
