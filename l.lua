@@ -23,10 +23,9 @@ end
 local function Teleport(enemy)
 	local plr = game.Players.LocalPlayer
 	local pChr = plr.Character or plr.CharacterAdded:Wait()
-	local pHroot = pChr:WaitForChild("HumanoidRootPart")
+	--local pHroot = pChr:WaitForChild("HumanoidRootPart")
 	--local pHumanoid = pChr:WaitForChild("Humanoid")
-	--pChr:SetPrimaryPartCFrame(enemy)
-	pHroot.CFrame = enemy
+	pChr:SetPrimaryPartCFrame(enemy)
 end
 FarmingWindow:Toggle("Auto Swing", {flag = 'AutoSwing'}, function(new)
 	task.spawn(function()
@@ -45,8 +44,8 @@ FarmingWindow:Toggle("Auto Farming", {flag = 'StartFarming'}, function(new)
 				local enemy = GetNearest(game.Players.LocalPlayer.Character.HumanoidRootPart.Position)
 				if enemy then
 					if enemy.CFrame then
-						--Teleport(enemy.CFrame)
-						repeat task.wait() Teleport(enemy.CFrame) until not enemy.Parent or enemy.Parent == nil or not FarmingWindow.flags.StartFarming
+						Teleport(enemy.CFrame)
+						repeat task.wait() until not enemy.Parent or enemy.Parent == nil or not FarmingWindow.flags.StartFarming
 					end
 					--repeat task.wait() until not enemy.HP or enemy.HP == nil or not FarmingWindow.flags.StartFarming
 				end
