@@ -46,9 +46,11 @@ FarmingWindow:Toggle("Start Farming", {flag = 'StartFarming'}, function(new)
 					end
 					repeat task.wait() until not enemy.HP or enemy.HP == nil or not FarmingWindow.flags.StartFarming
 					if _G.SellOrCatch then
-						game:GetService("VirtualInputManager"):SendKeyEvent(true,Enum.KeyCode.E,false,game)
+						keypress(0x45)
+						--game:GetService("VirtualInputManager"):SendKeyEvent(true,Enum.KeyCode.E,false,game)
 					else
-						game:GetService("VirtualInputManager"):SendKeyEvent(true,Enum.KeyCode.Q,false,game)
+						keypress(0x51)
+						--game:GetService("VirtualInputManager"):SendKeyEvent(true,Enum.KeyCode.Q,false,game)
 					end
 					task.wait(1)
 				end
