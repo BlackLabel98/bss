@@ -1,3 +1,6 @@
+for i,v in pairs(getconnections(game.Players.LocalPlayer.Idled)) do
+  v:Disable()
+end
 local library = loadstring(game:HttpGet('https://raw.githubusercontent.com/BlackLabel98/bss/main/k.lua'))()
 local FarmingWindow = library:CreateWindow("Farming")
 local function GetNearest(plr)
