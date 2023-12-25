@@ -122,11 +122,11 @@ https://live.cnnindonesia.com/livecnn/smil:cnntv.smil/master.m3u8
 #EXTINF:-1 group-title="INDONESIA" tvg-logo="http://s3.i3ns.net/portal/picon/2021-07/4415ae88fbabaa7f388eaa7dead5e038.png",#22 CNBC Indonesia
 https://live.cnbcindonesia.com/livecnbc/smil:cnbctv.smil/master.m3u8
 
-#EXTINF:-1 tvg-logo="" group-title="ENTERTAINMENT",#23 Citra Bioskop
+#EXTINF:-1 group-title="INDONESIA" tvg-logo="",#23 Citra Bioskop
 http://vod.linknetott.swiftcontent.com/Content/HLS/Live/Channel%28ch376%29/Stream(03)/index.m3u8
-#EXTINF:-1 tvg-logo="" group-title="ENTERTAINMENT",#24 Citra Dangdut
+#EXTINF:-1 group-title="INDONESIA" tvg-logo="",#24 Citra Dangdut
 http://vod.linknetott.swiftcontent.com/Content/HLS/Live/Channel%28ch377%29/Stream(03)/index.m3u8
-#EXTINF:-1 tvg-logo="" group-title="ENTERTAINMENT",#25 Citra Drama
+#EXTINF:-1 group-title="INDONESIA" tvg-logo="",#25 Citra Drama
 http://vod.linknetott.swiftcontent.com/Content/HLS/Live/Channel%28ch378%29/Stream(03)/index.m3u8
-#EXTINF:-1 tvg-logo="" group-title="ENTERTAINMENT",#26 Citra Entertainment
+#EXTINF:-1 group-title="INDONESIA" tvg-logo="",#26 Citra Entertainment
 http://vod.linknetott.swiftcontent.com/Content/HLS/Live/Channel%28ch379%29/Stream(03)/index.m3u8
